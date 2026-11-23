@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import CustomCursor from "@/components/CustomCursor";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import GlobalBackground from "@/components/GlobalBackground";
 import { DetectionProvider } from "@/context/DetectionContext";
 
@@ -25,10 +26,13 @@ export default function RootLayout({
       <body className={`${space.variable} antialiased font-sans bg-[#f8fafc] text-slate-900`}>
         <DetectionProvider>
           <GlobalBackground />
-          <div className="relative z-10">
-            <CustomCursor />
-            <Navigation />
-            {children}
+          <div className="relative z-10 flex flex-col min-h-screen justify-between">
+            <div>
+              <CustomCursor />
+              <Navigation />
+              {children}
+            </div>
+            <Footer />
           </div>
         </DetectionProvider>
       </body>
